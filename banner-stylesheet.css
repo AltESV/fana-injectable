@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.your-website {
+    width: 100vw;
+    display: flex;
+}
+
+.banner {
+    background-color: #1E0E40;
+    color: white;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.banner p {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
