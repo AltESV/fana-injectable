@@ -1,0 +1,148 @@
+<style>
+  #shopify-section-{{section.id}} .your-website{
+    height: unset;
+  }
+</style>
+<!-- INFO CARD -->
+<div class="your-website">
+    <div class="container1">
+        <div class="tooltip" >
+          {% if section.settings.image   %}
+            <img src="{{ section.settings.image | img_url : 'master'  }}" alt="icon" width="70px">
+            <span class="tooltiptext">{{ section.settings.tooltip }}</span>
+            {% endif %}
+        </div>
+        <div class="info">
+            <div class="info-line1 ">
+                <h3 style="color: white !important; font-family: sans-serif !important; font-size: 18px; font-weight: bold"; >{{ section.settings.heading }}</h3>
+            </div>
+            <div class="info-line2">
+                <p> <span id="percent">{{ section.settings.percent }}</span>{{ section.settings.richtext }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Card",
+    
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id" : "image",
+        "label" : "Icon"
+      },
+      {
+        "type" : "text",
+        "id" : "tooltip",
+        "label" : "Tooltip Text",
+        "default" : "Fana is a web3 powered philanthropic platform. Your purchase, Your impact!"
+      },
+      {
+        "type" : "text",
+        "id" : "heading",
+        "label" : "Heading",
+        "default" : "We are giving back with Fana!"
+      },
+           
+      {
+        "type" : "text",
+        "id" : "percent",
+        "label" : "Percent",
+        "default" : "5"
+      },
+      {
+        "type" : "textarea",
+        "id" : "richtext",
+        "label" : "Description Area",
+        "default" : "% of every order go to causes you choose"
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "Card"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+   
+
+.your-website {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 0;
+    padding: 0;
+}
+
+.container1 {
+  background-color: #1E0E40 !important;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 15px;
+    padding: 0px 10px;
+    margin: 3px;
+} 
+
+
+.info {
+  color: white;
+    font-family: sans-serif;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    font-family: sans-serif;
+    visibility: hidden;
+    width: 220px;
+    background-color: #1E0E40;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+{% javascript %}
+{% endjavascript %}

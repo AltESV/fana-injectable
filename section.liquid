@@ -1,0 +1,148 @@
+<style>
+  #shopify-section-{{section.id}} .your-website{
+    height: unset;
+  }
+</style>
+<!-- SECTION -->
+<div class="your-website">
+    <div class="container">
+        <div class="image-box">
+          {% if section.settings.image   %}
+        <img src="{{ section.settings.image | img_url :'master' }}" />
+            {% endif %}
+        </div>
+        <div class="info-box">
+            <h1 style="display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;">
+            {{ section.settings.heading }}</h1>
+            <p>{{ section.settings.para-graph }}</p>
+          {% if section.settings.linktext != blank %}
+            <div class="button"><a style="font-weight: 700;" href="{{ section.settings.link }}" target="_blank">{{ section.settings.linktext }}</a></div>
+            {% endif  %}
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Section",
+    "settings": [
+    
+    
+      {
+        "type" : "image_picker",
+        "id" : "image",
+        "label" : "Icon"
+      },
+      {
+        "type" : "text",
+        "id" : "heading",
+        "label" : "title ",
+        "default" : "We are giving back with FANA! 5% on every purchase"
+      },
+      {
+         "type" : "textarea",
+        "id" : "para-graph",
+        "label" : "Description Area",
+        "default" : "We are giving back to causes you choose with Fana. Make an impact, receive (NFTs) digital collectibles and change the world with us!"
+      },
+         {
+      "id": "linktext",
+      "type": "text",
+      "label": "Button text",
+      "default": "Click Here"
+    }, 
+      {
+      "id": "link",
+      "type": "url",
+      "label": "Button link"
+    }
+       
+    ],
+    "presets" : [
+      {
+        "name" : "Section"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  
+
+.your-website {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin: 0;
+    padding: 0;
+}
+
+.image-box img {
+    width: 50%;
+}
+
+.container {
+         width: 100%;
+    height: 25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 0 30px;
+    background-color: #E9EDE6;
+
+}
+
+.info-box {
+    font-family: sans-serif;
+}
+
+.button {
+    width: 50%;  
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: black;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #bab9d0;
+  background-image: linear-gradient(45deg, #ede7f6 0%, #f2f8ff  51%, #bab9d0  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button a {
+    color: black;
+    text-decoration: none;
+}
+
+.button a:hover {
+    color: #fff;
+  text-decoration: none;
+}
+
+.button:hover {
+    background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+  .info-box .button:after {
+    display: none;
+}
+</style>
+
+{% javascript %}
+{% endjavascript %}

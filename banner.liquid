@@ -1,0 +1,72 @@
+<style>
+  #shopify-section-{{section.id}} .your-website{
+    height: unset;
+  }
+</style>
+<!-- BANNER -->
+<div class="your-website">
+    <div class="banner">
+        <div class="icon">
+          {% if section.settings.image   %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt="icon" width="20px">
+          {% endif %}
+        </div>
+        <div class="info">
+            <p>{{ section.settings.text }}</p>
+        </div>
+    </div>
+</div>
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+      {
+        "type" : "image_picker",
+        "id" : "image",
+        "label" : "Icon"
+      },
+      {
+        "type" : "text",
+        "id" : "text",
+        "label" : "Text",
+        "default" : "We are giving back with FANA! 5% on every purchase"
+      }
+    ],
+    "presets" : [
+      {
+        "name" : "Banner"
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.your-website {
+    width: 100vw;
+    display: flex;
+}
+
+.banner {
+    background-color: #1E0E40;
+    color: white;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.banner p {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
+</style>
+
+{% javascript %}
+{% endjavascript %}
